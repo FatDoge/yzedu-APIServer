@@ -7,6 +7,12 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
+var sclassRouter = require('./routes/Sclass_list');
+var LinfoRouter = require('./routes/Lessoninfo');
+var liveRouter = require('./routes/Live');
+
+var data = require('./routes/data');
+
 
 var app = express();
 //CORS
@@ -30,6 +36,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/login',loginRouter);
+app.use('/Sclass_list',sclassRouter);
+app.use('/Lessoninfo',LinfoRouter);
+app.use('/Live',liveRouter);
+
+app.use('/data', data);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
